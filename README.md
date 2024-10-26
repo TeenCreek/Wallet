@@ -70,13 +70,6 @@ docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 ```
 
-Или войдите по уже готовому аккаунту:
-
-```
-логин: admin
-пароль: admin
-```
-
 ### 6. Удаление контейнеров
 
 Если вам нужно удалить все контейнеры и образы, выполните:
