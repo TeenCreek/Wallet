@@ -1,26 +1,26 @@
-version: '3'  # Версия Docker Compose
+version: '3'
 
 services:
   web:
-    build: .  # Указывает, что образ нужно собрать из текущей директории
+    build: .
     ports:
-      - "8000:8000"  # Прокидываем порт 8000 для доступа к приложению
+      - "8000:8000" 
     environment:
-      - DB_HOST=db  # Имя сервиса базы данных
+      - DB_HOST=db  
       - DB_PORT=5432
       - DB_NAME=wallet
       - DB_USER=postgres
-      - DB_PASS=${DB_PASS}  # Используем переменную из .env
-      - SECRET_KEY=${SECRET_KEY}  # Используем переменную из .env
+      - DB_PASS=${DB_PASS}  
+      - SECRET_KEY=${SECRET_KEY}  
     depends_on:
-      - db  # Указывает, что сервис web зависит от db
+      - db  
 
   db:
-    image: postgres:latest  # Используем официальный образ PostgreSQL
+    image: postgres:latest 
     restart: always
     environment:
-      POSTGRES_DB: wallet  # Имя создаваемой базы данных
-      POSTGRES_USER: postgres  # Пользователь базы данных
-      POSTGRES_PASSWORD: ${DB_PASS}  # Используем переменную из .env
+      POSTGRES_DB: wallet  
+      POSTGRES_USER: postgres  
+      POSTGRES_PASSWORD: ${DB_PASS} 
     ports:
-      - "5432:5432"  # Прокидываем порт базы данных для доступа
+      - "5432:5432"
