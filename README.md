@@ -56,7 +56,13 @@ docker-compose up --build
 docker-compose up
 ```
 
-### 4. Создание суперпользователя
+### 4. Применить миграции
+
+```
+docker-compose exec web python manage.py migrate
+```
+
+### 5. Создание суперпользователя
 
 Для создания суперпользователя выполните команду:
 
@@ -71,7 +77,7 @@ docker-compose exec web python manage.py createsuperuser
 пароль: admin
 ```
 
-### 5. Удаление контейнеров
+### 6. Удаление контейнеров
 
 Если вам нужно удалить все контейнеры и образы, выполните:
 
